@@ -1,11 +1,16 @@
 // src/App.jsx
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navigation from "./pages/navigation/Navigation";
+import Home from "./pages/home/Home";
 
 const App = () => {
   return (
-    <div>
+    <Router>
       <Navigation />
-    </div>
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+      </Routes>
+    </Router>
   );
 };
 
