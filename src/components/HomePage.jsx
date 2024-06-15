@@ -8,6 +8,7 @@ import {
   Box,
   useMediaQuery,
 } from "@mui/material";
+import HighlightedTypography from "./HighLightTypoGraphy";
 // import { styled } from "@mui/system";
 
 // Create a custom button at last
@@ -35,6 +36,7 @@ import {
 const Home = () => {
   const isSmallScreen = useMediaQuery("(max-width: 960px)"); // Define a breakpoint for small screens
   const leftContainerWidth = isSmallScreen ? "100%" : "50%"; // Set width for left container based on screen size
+  const paddingContain = isSmallScreen ? 0 : 2; // Set width for left container based on screen size
 
   return (
     <Container
@@ -58,23 +60,34 @@ const Home = () => {
             display: "flex",
             flexDirection: "column",
             margin: "30px 0",
-            padding: 2,
+            padding: paddingContain,
             width: leftContainerWidth, // Set width of left container dynamically
           }}
         >
-          <Box padding={"20px"}>
+          <Box padding={isSmallScreen ? "5px" : "20px"}>
             <Box maxWidth={"100%"}>
-              <Typography variant="h3" component="div" sx={{ mb: 2 }}>
-                <Box maxWidth={"70%"}>
+              <Typography
+                variant={"h3"}
+                paddingX={isSmallScreen ? 2 : "0px"}
+                component="div"
+                sx={{ mb: 2 }}
+              >
+                <Box maxWidth={isSmallScreen ? "100%" : "70%"} color={"blue"}>
                   Are you Ready <span>icon </span>
                   for a revolution in
                 </Box>
-                <Typography variant="h3"> fintech industry ?</Typography>
-                <Typography variant="h2">Explore Us</Typography>
+                <Typography variant={isSmallScreen ? "h5" : "h3"}>
+                  {" "}
+                  fintech industry ?
+                </Typography>
+                <Typography variant={isSmallScreen ? "h4" : "h3"}>
+                  Explore Us
+                </Typography>
               </Typography>
               <Typography
                 variant="body1"
                 sx={{ mb: 2, mt: 2, color: "#a4a4a4" }}
+                paddingX="5px"
               >
                 This is a paragraph. It provides some information about the
                 topic. Lorem ipsum dolor sit amet consectetur, elit. Magnam cum
@@ -98,11 +111,7 @@ const Home = () => {
               </CustomButton>
             </Box> */}
 
-            <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-              <Typography variant="body2">Item 1</Typography>
-              <Typography variant="body2">Item 2</Typography>
-              <Typography variant="body2">Item 3</Typography>
-            </Box>
+            <HighlightedTypography />
           </Box>
         </CardContent>
         <Box
