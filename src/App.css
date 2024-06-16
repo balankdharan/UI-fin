@@ -50,11 +50,12 @@
   pointer-events: none;
   transform: translate(-50%, -50%);
   transition: 0.1s;
+  z-index: 9999;
 }
 
 .cursor2 {
   border: 1px solid blue;
-
+  z-index: 9999;
   height: 35px;
   width: 35px;
   border-radius: 50%;
