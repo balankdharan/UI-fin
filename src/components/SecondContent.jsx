@@ -1,7 +1,8 @@
 import { Card, Container, Box, Typography, useMediaQuery } from "@mui/material";
+import Iphone from "../assets/iphone1.jpg";
 
 const SecondContent = () => {
-  const isSmallScreen = useMediaQuery("(max-width: 960px)");
+  const isSmallScreen = useMediaQuery("(max-width: 899px)");
   return (
     <Container
       maxWidth={false}
@@ -11,6 +12,7 @@ const SecondContent = () => {
         mt: 4,
         width: "100%",
         position: "relative",
+        paddingBottom: isSmallScreen ? "820px" : "300px",
       }}
     >
       {/* First part: Card with black background */}
@@ -23,7 +25,8 @@ const SecondContent = () => {
           maxWidth: "95%",
           display: "flex",
           justifyContent: "center",
-          paddingTop: isSmallScreen ? "50%" : "5%",
+          paddingTop: "5%",
+          paddingX: "20px",
           position: "relative",
           borderRadius: "20px",
           boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
@@ -36,7 +39,7 @@ const SecondContent = () => {
       <Box
         sx={{
           position: "absolute",
-          top: "50%",
+          top: "15%",
           width: "85%",
           maxWidth: "85%",
           display: "flex",
@@ -62,9 +65,9 @@ const SecondContent = () => {
           }}
         >
           <img
-            src="image1.jpg"
+            src={Iphone}
             alt="Image 1"
-            style={{ width: "100%", borderRadius: "8px", height: "100%" }}
+            style={{ width: "200px", borderRadius: "20px", height: "300px" }}
           />
         </Box>
         {/* Column 2 */}
@@ -81,9 +84,9 @@ const SecondContent = () => {
           }}
         >
           <img
-            src="image2.jpg"
-            alt="Image 2"
-            style={{ width: "100%", borderRadius: "8px", height: "100%" }}
+            src={Iphone}
+            alt="Image 1"
+            style={{ width: "200px", borderRadius: "20px", height: "300px" }}
           />
         </Box>
         {/* Column 3 */}
@@ -99,9 +102,9 @@ const SecondContent = () => {
           }}
         >
           <img
-            src="image3.jpg"
-            alt="Image 3"
-            style={{ width: "100%", borderRadius: "8px", height: "100%" }}
+            src={Iphone}
+            alt="Image 1"
+            style={{ width: "200px", borderRadius: "20px", height: "300px" }}
           />
         </Box>
       </Box>
