@@ -62,6 +62,10 @@ const SecondContent = () => {
             borderRadius: "20px",
             boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
             mb: { xs: 2, md: 0 }, // margin bottom for spacing in mobile view
+            transition: "transform 0.3s ease-in-out",
+            "&:hover": {
+              transform: "scale(1.05)",
+            },
           }}
         >
           <img
@@ -81,6 +85,10 @@ const SecondContent = () => {
             borderRadius: "20px",
             boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
             mb: { xs: 2, md: 0 }, // margin bottom for spacing in mobile view
+            transition: "transform 0.3s ease-in-out",
+            "&:hover": {
+              transform: "scale(1.05)",
+            },
           }}
         >
           <img
@@ -99,6 +107,10 @@ const SecondContent = () => {
             backgroundColor: "whitesmoke",
             borderRadius: "20px",
             boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+            transition: "transform 0.3s ease-in-out",
+            "&:hover": {
+              transform: "scale(1.05)",
+            },
           }}
         >
           <img
