@@ -1,9 +1,35 @@
+/* eslint-disable react/prop-types */
+import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import HomePage from "../../components/HomePage";
 import SecondContent from "../../components/SecondContent";
 import ThirdSection from "../../components/ThirdSection";
 
-const Home = () => {
+const Home = ({ setHoveredSection }) => {
+  const secondSectionRef = useRef(null);
+
+  useEffect(() => {
+    const secondSection = secondSectionRef.current;
+
+    const handleMouseEnter = () => {
+      setHoveredSection("second");
+    };
+
+    const handleMouseLeave = () => {
+      setHoveredSection(null);
+    };
+
+    if (secondSection) {
+      secondSection.addEventListener("mouseenter", handleMouseEnter);
+      secondSection.addEventListener("mouseleave", handleMouseLeave);
+
+      return () => {
+        secondSection.removeEventListener("mouseenter", handleMouseEnter);
+        secondSection.removeEventListener("mouseleave", handleMouseLeave);
+      };
+    }
+  }, [setHoveredSection]);
+
   const slideRightVariants = {
     hidden: { opacity: 0, x: -200 },
     visible: {
@@ -24,7 +50,7 @@ const Home = () => {
       >
         <HomePage />
       </motion.div>
-      <SecondContent />
+      <SecondContent ref={secondSectionRef} /> {/* Use ref here */}
       <ThirdSection />
     </>
   );

@@ -1,10 +1,12 @@
+import { forwardRef } from "react";
 import { Card, Container, Box, Typography, useMediaQuery } from "@mui/material";
-import Iphone from "../assets/iphone1.jpg";
 
-const SecondContent = () => {
+const SecondContent = forwardRef((props, ref) => {
   const isSmallScreen = useMediaQuery("(max-width: 899px)");
+
   return (
     <Container
+      ref={ref}
       maxWidth={false}
       sx={{
         display: "flex",
@@ -68,11 +70,11 @@ const SecondContent = () => {
             },
           }}
         >
-          <img
+          {/* <img
             src={Iphone}
             alt="Image 1"
             style={{ width: "200px", borderRadius: "20px", height: "300px" }}
-          />
+          /> */}
         </Box>
         {/* Column 2 */}
         <Box
@@ -91,11 +93,11 @@ const SecondContent = () => {
             },
           }}
         >
-          <img
+          {/* <img
             src={Iphone}
             alt="Image 1"
             style={{ width: "200px", borderRadius: "20px", height: "300px" }}
-          />
+          /> */}
         </Box>
         {/* Column 3 */}
         <Box
@@ -113,15 +115,17 @@ const SecondContent = () => {
             },
           }}
         >
-          <img
+          {/* <img
             src={Iphone}
             alt="Image 1"
             style={{ width: "200px", borderRadius: "20px", height: "300px" }}
-          />
+          /> */}
         </Box>
       </Box>
     </Container>
   );
-};
+});
+
+SecondContent.displayName = "SecondContent"; // Set display name for better debugging
 
 export default SecondContent;

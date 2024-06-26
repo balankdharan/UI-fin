@@ -1,4 +1,3 @@
-// src/App.jsx
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navigation from "./pages/navigation/Navigation";
 import Home from "./pages/home/Home";
@@ -9,6 +8,7 @@ const App = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const cursorRef1 = useRef(null);
   const cursorRef2 = useRef(null);
+  const [hoveredSection, setHoveredSection] = useState(null); // State to track hovered section
 
   useEffect(() => {
     const mouseMove = (e) => {
@@ -41,12 +41,22 @@ const App = () => {
 
   return (
     <>
-      <div ref={cursorRef1} className="cursor" />
-      <div ref={cursorRef2} className="cursor2" />
+      <div
+        ref={cursorRef1}
+        className={`cursor ${hoveredSection === "second" ? "change" : ""}`}
+      />
+      <div
+        ref={cursorRef2}
+        className={`cursor2 ${hoveredSection === "second" ? "change2" : ""}`}
+      />
       <Router>
         <Navigation />
         <Routes>
-          <Route exact path="/" element={<Home />} />
+          <Route
+            exact
+            path="/"
+            element={<Home setHoveredSection={setHoveredSection} />} // Pass setHoveredSection to Home
+          />
         </Routes>
       </Router>
     </>

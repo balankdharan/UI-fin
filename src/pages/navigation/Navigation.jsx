@@ -47,6 +47,7 @@ function Navigation() {
               textDecoration: "none",
               color: "black",
               display: "flex",
+              cursor: "none",
             }}
           >
             <Typography
@@ -126,7 +127,7 @@ function Navigation() {
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "black", display: "block" }}
+                sx={{ my: 2, color: "black", display: "block", cursor: "none" }}
               >
                 {page}
               </Button>
@@ -141,6 +142,7 @@ function Navigation() {
                 color: "white",
                 borderRadius: "50px",
                 padding: "10px 20px",
+                cursor: "none",
                 "&:hover": {
                   backgroundColor: "darkblue",
                 },

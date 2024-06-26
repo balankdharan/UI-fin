@@ -66,3 +66,9 @@
   transform: translate(-50%, -50%);
   transition: 0.15s;
 }
+.change {
+  background-color: #fdb827;
+}
+.change2 {
+  border: 1px solid #fdb827;
+}
