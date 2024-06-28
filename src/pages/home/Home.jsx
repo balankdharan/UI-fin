@@ -50,7 +50,9 @@ const Home = ({ setHoveredSection }) => {
       >
         <HomePage />
       </motion.div>
-      <SecondContent ref={secondSectionRef} /> {/* Use ref here */}
+
+      <SecondContent ref={secondSectionRef} />
+      {/* Use ref here */}
       <ThirdSection />
     </>
   );

@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
 import { Card, Container, Box, Typography, useMediaQuery } from "@mui/material";
-
+import HomeImage from "../components/HomeImage";
 const SecondContent = forwardRef((props, ref) => {
   const isSmallScreen = useMediaQuery("(max-width: 899px)");
 
@@ -60,7 +60,7 @@ const SecondContent = forwardRef((props, ref) => {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            backgroundColor: "whitesmoke",
+            backgroundColor: "RGB(239, 239, 239)",
             borderRadius: "20px",
             boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
             mb: { xs: 2, md: 0 }, // margin bottom for spacing in mobile view
@@ -75,6 +75,9 @@ const SecondContent = forwardRef((props, ref) => {
             alt="Image 1"
             style={{ width: "200px", borderRadius: "20px", height: "300px" }}
           /> */}
+          <Box sx={{ width: "300px", height: "500px" }}>
+            <HomeImage />
+          </Box>
         </Box>
         {/* Column 2 */}
         <Box

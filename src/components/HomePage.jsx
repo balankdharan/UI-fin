@@ -8,6 +8,12 @@ import {
   Box,
   useMediaQuery,
 } from "@mui/material";
+import Lottie from "react-lottie";
+import animationData from "../assets/animationData.json";
+import money from "../assets/money.json";
+import wallet from "../assets/wallet.json";
+import cards from "../assets/cards.json";
+import graph from "../assets/graph.json";
 import HighlightedTypography from "./HighLightTypoGraphy";
 // import { styled } from "@mui/system";
 
@@ -37,7 +43,46 @@ const Home = () => {
   const isSmallScreen = useMediaQuery("(max-width: 960px)"); // Define a breakpoint for small screens
   const leftContainerWidth = isSmallScreen ? "100%" : "50%"; // Set width for left container based on screen size
   const paddingContain = isSmallScreen ? 0 : 2; // Set width for left container based on screen size
-
+  const defaultOptions = {
+    loop: false,
+    autoplay: true,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
+  const walletOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: wallet,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
+  const moneyOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: money,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
+  const cardsOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: cards,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
+  const graphOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: graph,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
   return (
     <Container
       maxWidth={false}
@@ -115,9 +160,9 @@ const Home = () => {
           </Box>
         </CardContent>
         <Box
-          component="img"
-          src="https://via.placeholder.com/150"
-          alt="Placeholder Image"
+          // component="img"
+          // src="https://via.placeholder.com/150"
+          // alt="Placeholder Image"
           sx={{
             display: { xs: "none", md: "block" },
             width: "50%", // Set width of right container
@@ -125,7 +170,23 @@ const Home = () => {
             borderTopRightRadius: "16px",
             borderBottomRightRadius: "16px",
           }}
-        />
+        >
+          <Box sx={{ width: "20%" }}>
+            <Lottie options={defaultOptions} />
+          </Box>
+          <Box sx={{ width: "20%" }}>
+            <Lottie options={moneyOptions} />
+          </Box>
+          <Box sx={{ width: "20%" }}>
+            <Lottie options={walletOptions} />
+          </Box>
+          <Box sx={{ width: "20%" }}>
+            <Lottie options={cardsOptions} />
+          </Box>
+          <Box sx={{ width: "20%" }}>
+            <Lottie options={graphOptions} />
+          </Box>
+        </Box>
       </Card>
     </Container>
   );
