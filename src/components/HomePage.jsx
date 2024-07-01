@@ -8,81 +8,56 @@ import {
   Box,
   useMediaQuery,
 } from "@mui/material";
-import Lottie from "react-lottie";
-import animationData from "../assets/animationData.json";
-import money from "../assets/money.json";
-import wallet from "../assets/wallet.json";
-import cards from "../assets/cards.json";
-import graph from "../assets/graph.json";
+
 import HighlightedTypography from "./HighLightTypoGraphy";
+import Bg from "../assets/bg.jpg";
 // import { styled } from "@mui/system";
-
-// Create a custom button at last
-
-// const CustomInput = styled(TextField)(() => ({
-//   borderRadius: "20px",
-//   borderTopRightRadius: 0,
-//   borderBottomRightRadius: 0,
-//   height: "60px",
-//   "& .MuiOutlinedInput-root": {
-//     borderRadius: "20px",
-//     height: "100%",
-//     borderTopRightRadius: 0,
-//     borderBottomRightRadius: 0,
-//   },
-// }));
-
-// const CustomButton = styled(Button)(() => ({
-//   borderRadius: "20px",
-//   borderTopLeftRadius: 0,
-//   borderBottomLeftRadius: 0,
-//   height: "60px",
-// }));
-
+import animationData from "../assets/graph.json";
+import Lottie from "react-lottie";
 const Home = () => {
   const isSmallScreen = useMediaQuery("(max-width: 960px)"); // Define a breakpoint for small screens
   const leftContainerWidth = isSmallScreen ? "100%" : "50%"; // Set width for left container based on screen size
   const paddingContain = isSmallScreen ? 0 : 2; // Set width for left container based on screen size
   const defaultOptions = {
-    loop: false,
+    loop: true,
     autoplay: true,
     animationData: animationData,
     rendererSettings: {
       preserveAspectRatio: "xMidYMid slice",
     },
   };
-  const walletOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: wallet,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  };
-  const moneyOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: money,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  };
-  const cardsOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: cards,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  };
-  const graphOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: graph,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  };
+  // const walletOptions = {
+  //   loop: true,
+  //   autoplay: true,
+  //   animationData: wallet,
+  //   rendererSettings: {
+  //     preserveAspectRatio: "xMidYMid slice",
+  //   },
+  // };
+  // const moneyOptions = {
+  //   loop: true,
+  //   autoplay: true,
+  //   animationData: money,
+  //   rendererSettings: {
+  //     preserveAspectRatio: "xMidYMid slice",
+  //   },
+  // };
+  // const cardsOptions = {
+  //   loop: true,
+  //   autoplay: true,
+  //   animationData: cards,
+  //   rendererSettings: {
+  //     preserveAspectRatio: "xMidYMid slice",
+  //   },
+  // };
+  // const graphOptions = {
+  //   loop: true,
+  //   autoplay: true,
+  //   animationData: graph,
+  //   rendererSettings: {
+  //     preserveAspectRatio: "xMidYMid slice",
+  //   },
+  // };
   return (
     <Container
       maxWidth={false}
@@ -112,14 +87,36 @@ const Home = () => {
           <Box padding={isSmallScreen ? "5px" : "20px"}>
             <Box maxWidth={"100%"}>
               <Typography
-                variant={"h3"}
+                variant={isSmallScreen ? "h5" : "h3"}
                 paddingX={isSmallScreen ? 2 : "0px"}
                 component="div"
                 sx={{ mb: 2 }}
               >
-                <Box maxWidth={isSmallScreen ? "100%" : "70%"} color={"blue"}>
-                  Are you Ready <span>icon </span>
-                  for a revolution in
+                <Box
+                  maxWidth={isSmallScreen ? "100%" : "90%"}
+                  color={"blue"}
+                  display={"flex"}
+                  style={{ alignItems: "center" }}
+                >
+                  <Box>Are you Ready </Box>
+                  <Box sx={{ paddingX: "5%" }}>
+                    <span
+                      style={{
+                        height: "50px",
+                      }}
+                    >
+                      <Lottie
+                        options={defaultOptions}
+                        height={isSmallScreen ? 70 : 80}
+                        width={isSmallScreen ? 70 : 80}
+                      />
+                    </span>{" "}
+                  </Box>
+                </Box>
+                <Box>
+                  <Typography variant={isSmallScreen ? "h5" : "h3"}>
+                    for a revolution in
+                  </Typography>
                 </Box>
                 <Typography variant={isSmallScreen ? "h5" : "h3"}>
                   {" "}
@@ -160,33 +157,27 @@ const Home = () => {
           </Box>
         </CardContent>
         <Box
-          // component="img"
-          // src="https://via.placeholder.com/150"
-          // alt="Placeholder Image"
           sx={{
-            display: { xs: "none", md: "block" },
-            width: "50%", // Set width of right container
-            objectFit: "cover",
-            borderTopRightRadius: "16px",
-            borderBottomRightRadius: "16px",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            width: "50%",
+            position: "relative",
+            backgroundImage: `url(${Bg})`, // Add your background image URL here
+            backgroundSize: "cover", // Ensures the image covers the entire box
+            backgroundPosition: "center", // Centers the image
+            "&::before": {
+              content: '""',
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              backgroundColor: "rgba(0, 0, 0, 0.5)", // Black color with 50% opacity
+              zIndex: 1,
+            },
           }}
-        >
-          <Box sx={{ width: "20%" }}>
-            <Lottie options={defaultOptions} />
-          </Box>
-          <Box sx={{ width: "20%" }}>
-            <Lottie options={moneyOptions} />
-          </Box>
-          <Box sx={{ width: "20%" }}>
-            <Lottie options={walletOptions} />
-          </Box>
-          <Box sx={{ width: "20%" }}>
-            <Lottie options={cardsOptions} />
-          </Box>
-          <Box sx={{ width: "20%" }}>
-            <Lottie options={graphOptions} />
-          </Box>
-        </Box>
+        ></Box>
       </Card>
     </Container>
   );

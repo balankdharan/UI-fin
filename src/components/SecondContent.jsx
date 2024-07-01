@@ -1,6 +1,8 @@
 import { forwardRef } from "react";
 import { Card, Container, Box, Typography, useMediaQuery } from "@mui/material";
-import HomeImage from "../components/HomeImage";
+import HomeImage from "../assets/business.svg";
+import Computer from "../assets/comp.svg";
+import Rem from "../assets/rem.svg";
 const SecondContent = forwardRef((props, ref) => {
   const isSmallScreen = useMediaQuery("(max-width: 899px)");
 
@@ -14,7 +16,7 @@ const SecondContent = forwardRef((props, ref) => {
         mt: 4,
         width: "100%",
         position: "relative",
-        paddingBottom: isSmallScreen ? "820px" : "300px",
+        paddingBottom: isSmallScreen ? "1320px" : "300px",
       }}
     >
       {/* First part: Card with black background */}
@@ -27,7 +29,7 @@ const SecondContent = forwardRef((props, ref) => {
           maxWidth: "95%",
           display: "flex",
           justifyContent: "center",
-          paddingTop: "5%",
+          paddingTop: "50px",
           paddingX: "20px",
           position: "relative",
           borderRadius: "20px",
@@ -41,14 +43,14 @@ const SecondContent = forwardRef((props, ref) => {
       <Box
         sx={{
           position: "absolute",
-          top: "15%",
+          top: isSmallScreen ? "5%" : "20%",
           width: "85%",
           maxWidth: "85%",
           display: "flex",
           justifyContent: "space-between",
           flexWrap: { xs: "wrap", md: "nowrap" },
           gap: 2, // gap between columns
-          height: "500px",
+          height: isSmallScreen ? "100px" : "500px",
           backgroundColor: "transparent",
           padding: 2,
         }}
@@ -60,7 +62,7 @@ const SecondContent = forwardRef((props, ref) => {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            backgroundColor: "RGB(239, 239, 239)",
+            backgroundColor: "white",
             borderRadius: "20px",
             boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
             mb: { xs: 2, md: 0 }, // margin bottom for spacing in mobile view
@@ -70,13 +72,33 @@ const SecondContent = forwardRef((props, ref) => {
             },
           }}
         >
-          {/* <img
-            src={Iphone}
-            alt="Image 1"
-            style={{ width: "200px", borderRadius: "20px", height: "300px" }}
-          /> */}
-          <Box sx={{ width: "300px", height: "500px" }}>
-            <HomeImage />
+          <Box
+            sx={{
+              width: "300px",
+              height: isSmallScreen ? "450px" : "500px",
+              padding: "20px",
+            }}
+          >
+            <img
+              src={HomeImage}
+              alt="Image 1"
+              style={{
+                width: "100%",
+                borderRadius: "20px",
+                height: "300px",
+                objectFit: "contain",
+              }}
+            />
+            <Typography
+              variant="body1"
+              sx={{
+                fontWeight: "bold",
+                textAlign: "center",
+              }}
+            >
+              Empower your financial future with our expert investment advice
+              and personalized wealth management solutions.
+            </Typography>
           </Box>
         </Box>
         {/* Column 2 */}
@@ -86,7 +108,8 @@ const SecondContent = forwardRef((props, ref) => {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            backgroundColor: "whitesmoke",
+            backgroundColor: "white",
+
             borderRadius: "20px",
             boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
             mb: { xs: 2, md: 0 }, // margin bottom for spacing in mobile view
@@ -96,6 +119,34 @@ const SecondContent = forwardRef((props, ref) => {
             },
           }}
         >
+          <Box
+            sx={{
+              width: "300px",
+              height: isSmallScreen ? "450px" : "500px",
+              padding: "20px",
+            }}
+          >
+            <img
+              src={Computer}
+              alt="Image 1"
+              style={{
+                width: "100%",
+                borderRadius: "20px",
+                height: "300px",
+                objectFit: "contain",
+              }}
+            />
+            <Typography
+              variant="body1"
+              sx={{
+                fontWeight: "bold",
+                textAlign: "center",
+              }}
+            >
+              Navigate the complexities of finance with confidence through
+              strategic investments and robust financial planning
+            </Typography>
+          </Box>
           {/* <img
             src={Iphone}
             alt="Image 1"
@@ -109,7 +160,8 @@ const SecondContent = forwardRef((props, ref) => {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            backgroundColor: "whitesmoke",
+            backgroundColor: "white",
+
             borderRadius: "20px",
             boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
             transition: "transform 0.3s ease-in-out",
@@ -118,6 +170,34 @@ const SecondContent = forwardRef((props, ref) => {
             },
           }}
         >
+          <Box
+            sx={{
+              width: "300px",
+              height: isSmallScreen ? "450px" : "500px",
+              padding: "20px",
+            }}
+          >
+            <img
+              src={Rem}
+              alt="Image 1"
+              style={{
+                width: "100%",
+                height: "300px",
+                borderRadius: "20px",
+                objectFit: "contain",
+              }}
+            />
+            <Typography
+              variant="body1"
+              sx={{
+                fontWeight: "bold",
+                textAlign: "center",
+              }}
+            >
+              Unlock financial success through informed investments and
+              comprehensive financial planning strategies
+            </Typography>
+          </Box>
           {/* <img
             src={Iphone}
             alt="Image 1"

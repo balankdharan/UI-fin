@@ -1,6 +1,6 @@
 import { Typography } from "@mui/material";
 import { Box, Container, useMediaQuery } from "@mui/system";
-import Iphone from "../assets/iphone1.jpg";
+import Iphone from "../assets/bac.jpg";
 import Footer from "./Footer";
 
 const ThirdSection = () => {
@@ -35,6 +35,7 @@ const ThirdSection = () => {
               alignItems: "center",
               mt: 4,
               borderRadius: "20px",
+
               height: "400px",
               width: "100%",
             }}
@@ -45,8 +46,10 @@ const ThirdSection = () => {
               style={{
                 borderTopRightRadius: "20px",
                 borderTopLeftRadius: "20px",
+                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.5)",
+
                 height: "100%",
-                width: isSmallScreen ? "99%" : "",
+                width: isSmallScreen ? "99%" : "60%",
               }}
             />
           </Box>

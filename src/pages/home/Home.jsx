@@ -1,12 +1,16 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import HomePage from "../../components/HomePage";
 import SecondContent from "../../components/SecondContent";
 import ThirdSection from "../../components/ThirdSection";
 
 const Home = ({ setHoveredSection }) => {
   const secondSectionRef = useRef(null);
+  const thirdSectionRef = useRef(null);
+  const firstSectionRef = useRef(null);
+  const isThirdSectionInView = useInView(thirdSectionRef, { once: false });
+  const isfirstSectionInView = useInView(firstSectionRef, { once: false });
 
   useEffect(() => {
     const secondSection = secondSectionRef.current;
@@ -40,20 +44,38 @@ const Home = ({ setHoveredSection }) => {
       },
     },
   };
+  const slideUpVariants = {
+    hidden: { opacity: 0, y: 200 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+      },
+    },
+  };
 
   return (
     <>
       <motion.div
+        ref={firstSectionRef}
         initial="hidden"
-        animate="visible"
+        animate={isfirstSectionInView ? "visible" : "hidden"}
         variants={slideRightVariants}
       >
         <HomePage />
       </motion.div>
 
       <SecondContent ref={secondSectionRef} />
-      {/* Use ref here */}
-      <ThirdSection />
+
+      <motion.div
+        ref={thirdSectionRef}
+        initial="hidden"
+        animate={isThirdSectionInView ? "visible" : "hidden"}
+        variants={slideUpVariants}
+      >
+        <ThirdSection />
+      </motion.div>
     </>
   );
 };

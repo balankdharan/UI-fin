@@ -39,11 +39,12 @@ const Footer = () => {
           {/* Left Part */}
           <Grid item xs={12} sm={6} sx={{ padding: 2 }}>
             <Box sx={{ textAlign: isSmallScreen ? "center" : "left" }}>
-              <img
+              {/* <img
                 src="/path/to/logo.png"
                 alt="Logo"
                 style={{ width: "100px" }}
-              />
+              /> */}
+              <Typography variant="h5">LOGO</Typography>
               <Typography variant="body1" sx={{ mt: 2 }}>
                 Your company description goes here. This is a placeholder text
                 that you can replace with your actual content.
@@ -54,120 +55,41 @@ const Footer = () => {
           <Grid item xs={12} sm={6}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={4}>
-                <Box sx={{ padding: 2 }}>
-                  <Typography variant="h6">Column 1</Typography>
-                  <ul style={{ listStyleType: "none", padding: 0 }}>
-                    <li>
-                      <a
-                        href="#"
-                        style={{ color: "white", textDecoration: "none" }}
-                      >
-                        Item 1
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="#"
-                        style={{ color: "white", textDecoration: "none" }}
-                      >
-                        Item 2
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="#"
-                        style={{ color: "white", textDecoration: "none" }}
-                      >
-                        Item 3
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="#"
-                        style={{ color: "white", textDecoration: "none" }}
-                      >
-                        Item 4
-                      </a>
-                    </li>
-                  </ul>
+                <Box sx={{ padding: 2, textAlign: "left" }}>
+                  <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+                    About Product
+                  </Typography>
+                  <br />
+                  <Typography variant="body1">Patch</Typography>
+
+                  <Typography variant="body1">Updates</Typography>
+                  <Typography variant="body1">Career</Typography>
                 </Box>
               </Grid>
               <Grid item xs={12} sm={4}>
-                <Box sx={{ padding: 2 }}>
-                  <Typography variant="h6">Column 2</Typography>
-                  <ul style={{ listStyleType: "none", padding: 0 }}>
-                    <li>
-                      <a
-                        href="#"
-                        style={{ color: "white", textDecoration: "none" }}
-                      >
-                        Item 1
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="#"
-                        style={{ color: "white", textDecoration: "none" }}
-                      >
-                        Item 2
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="#"
-                        style={{ color: "white", textDecoration: "none" }}
-                      >
-                        Item 3
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="#"
-                        style={{ color: "white", textDecoration: "none" }}
-                      >
-                        Item 4
-                      </a>
-                    </li>
-                  </ul>
+                <Box sx={{ padding: 2, textAlign: "left" }}>
+                  <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+                    {" "}
+                    Company
+                  </Typography>
+                  <br />
+                  <Typography variant="body1">Patch</Typography>
+
+                  <Typography variant="body1">Update</Typography>
+                  <Typography variant="body1">Business</Typography>
                 </Box>
               </Grid>
               <Grid item xs={12} sm={4}>
-                <Box sx={{ padding: 2 }}>
-                  <Typography variant="h6">Column 3</Typography>
-                  <ul style={{ listStyleType: "none", padding: 0 }}>
-                    <li>
-                      <a
-                        href="#"
-                        style={{ color: "white", textDecoration: "none" }}
-                      >
-                        Item 1
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="#"
-                        style={{ color: "white", textDecoration: "none" }}
-                      >
-                        Item 2
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="#"
-                        style={{ color: "white", textDecoration: "none" }}
-                      >
-                        Item 3
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="#"
-                        style={{ color: "white", textDecoration: "none" }}
-                      >
-                        Item 4
-                      </a>
-                    </li>
-                  </ul>
+                <Box sx={{ padding: 2, textAlign: "left" }}>
+                  <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+                    Support
+                  </Typography>
+                  <br />
+                  <Typography variant="body1">Help Center</Typography>
+
+                  <Typography variant="body1">Account</Typography>
+                  <Typography variant="body1">Early Access</Typography>
+                  <Typography variant="body1">Talk to support</Typography>
                 </Box>
               </Grid>
             </Grid>
