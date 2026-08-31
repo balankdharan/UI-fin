@@ -5,39 +5,40 @@ import { useEffect, useState, useRef } from "react";
 import "./App.css";
 
 const App = () => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const cursorRef1 = useRef(null);
   const cursorRef2 = useRef(null);
+  const mousePosition = useRef({ x: 0, y: 0 });
   const [hoveredSection, setHoveredSection] = useState(null); // State to track hovered section
 
   useEffect(() => {
     const mouseMove = (e) => {
-      const { clientX: x, clientY: y } = e;
-      setMousePosition({ x, y });
+      mousePosition.current = { x: e.clientX, y: e.clientY };
     };
 
     window.addEventListener("mousemove", mouseMove);
 
+    let raf;
+    const updateCursor = () => {
+      const { x, y } = mousePosition.current;
+      if (cursorRef1.current) {
+        cursorRef1.current.style.transform = `translate3d(${x - 16}px, ${
+          y - 16
+        }px, 0)`;
+      }
+      if (cursorRef2.current) {
+        cursorRef2.current.style.transform = `translate3d(${x - 32}px, ${
+          y - 32
+        }px, 0)`;
+      }
+      raf = requestAnimationFrame(updateCursor);
+    };
+    updateCursor();
+
     return () => {
       window.removeEventListener("mousemove", mouseMove);
+      cancelAnimationFrame(raf);
     };
   }, []);
-
-  useEffect(() => {
-    const updateCursor = () => {
-      if (cursorRef1.current && cursorRef2.current) {
-        cursorRef1.current.style.transform = `translate3d(${
-          mousePosition.x - 16
-        }px, ${mousePosition.y - 16}px, 0)`;
-        cursorRef2.current.style.transform = `translate3d(${
-          mousePosition.x - 32
-        }px, ${mousePosition.y - 32}px, 0)`;
-      }
-      requestAnimationFrame(updateCursor);
-    };
-
-    updateCursor();
-  }, [mousePosition]);
 
   return (
     <>
